@@ -1,0 +1,11 @@
+[user]
+	name = cstml
+    email = 29694576+cstml@users.noreply.github.com
+[merge]
+	tool = vimdiff
+[diff]
+	tool = vimdiff
+[core]
+	editor = vim
+[cola]
+	spellcheck = false
