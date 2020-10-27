@@ -128,6 +128,25 @@ export PATH="$HOME/gems/bin:$PATH"
 # Use vim as the default editor
 export EDITOR="vim"
 
+# Salfesforce autocomplete
+# sfdx autocomplete setup
+SFDX_AC_BASH_SETUP_PATH=/home/cstml/.cache/sfdx/autocomplete/bash_setup && test -f $SFDX_AC_BASH_SETUP_PATH && source $SFDX_AC_BASH_SETUP_PATH;
+
+
+# helm env install
+export PATH="$HOME/.helmenv/bin:$PATH"
+
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
-export PS1="\\w:\$(git branch 2>/dev/null | grep '^*' | colrm 1 2)\$ "
+source <(kubectl completion bash)
+export PATH="$HOME/.nodenv/bin:$PATH"
+export PATH="$HOME/.nodenv/bin:$PATH"
+
+
+eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
+
+# git branch
+parse_git_branch() {
+     git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
+}
+export PS1="\u@\h \[\033[32m\]\w\[\033[33m\]\$(parse_git_branch)\[\033[00m\] $ "
