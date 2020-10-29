@@ -127,10 +127,16 @@ nnoremap <leader><leader>f :Files<CR>
 " searches for text in files
 nnoremap <leader>F :Locate /<CR>      
 
-" search in all buffers
+" search in all buffers name
 nnoremap <leader>b :Bufers<CR>
 
 " search in all files
 nnoremap <leader>a :Ag<CR>
+
+" search in all open buffers lines
+nnoremap <leader>L :BLines<CR>
+
+" search in all open buffers lines
+nnoremap <leader>l :Lines<CR>
 """""""""""""""""""""""""""""""""""""""""
 " FZF SETTINGS
