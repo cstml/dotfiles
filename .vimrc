@@ -2,56 +2,59 @@
 " I try and keep this as tidy as possible 
 " and will remove stuff whenever.
 " Hopefully you will find some cool stuff 
-"
-filetype off                  " required
+
+filetype off                            " required
 
 call plug#begin()
 
-Plug 'VundleVim/Vundle.vim'          "Plugin Manager
+Plug 'VundleVim/Vundle.vim'             " Plugin Manager
+"
+                                        " the best autocomplete
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-
-Plug 'morhetz/gruvbox'                 "colorscheme
-Plug 'OmniSharp/omnisharp-vim'       "Omnicompletion for C#
-Plug 'vim-airline/vim-airline'       "airline taskbar
+Plug 'puremourning/vimspector'          " VIMspector dbg
+                                
+Plug 'morhetz/gruvbox'                  " colorscheme
+Plug 'OmniSharp/omnisharp-vim'          " Omnicompletion for C#
+Plug 'vim-airline/vim-airline'          " airline taskbar
 
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } } 
-Plug 'junegunn/fzf.vim'                "awesome fuzzy finder
+Plug 'junegunn/fzf.vim'                 " awesome fuzzy finder
 
-Plug 'tpope/vim-fugitive'            "great stuff for GIt
+Plug 'tpope/vim-fugitive'               " great stuff for GIt
 
-Plug 'szw/vim-tags'                  " tag managerworks with :TagsGenerate
+"Plug 'szw/vim-tags'                     " tag managerworks with :TagsGenerate
 
-Plug 'mbbill/undotree'               " Undotree is fantastic really
+Plug 'mbbill/undotree'                  " Undotree is fantastic really
 
-"Plug 'leafgarland/typescript-vim'    " typescript
-Plug 'vim-utils/vim-man'
+"Plug 'leafgarland/typescript-vim'      " typescript
+Plug 'vim-utils/vim-man'                " vim-manual
 
-Plug 'lervag/vimtex'
-Plug 'vim-latex/vim-latex'
-Plug 'xuhdev/vim-latex-live-preview'
+Plug 'lervag/vimtex'                    " latex
+Plug 'vim-latex/vim-latex'              " latex
+Plug 'xuhdev/vim-latex-live-preview'    " latex live preview
 
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'Chiel92/vim-autoformat'
 Plug 'ycm-core/YouCompleteMe'
 
-Plug 'davidhalter/jedi-vim'          " Python Autocomplete
+Plug 'davidhalter/jedi-vim'             " Python Autocomplete
 "Plug 'xolox/vim-easytags'
 Plug 'xolox/vim-misc'
-Plug 'majutsushi/tagbar'             " Great tagbar - mapped to <F8>
-Plug 'ncm2/ncm2'                     " Autocomplete
-Plug 'tpope/vim-surround'           " Fantastic surround replacer that accessed by cs
-Plug 'tpope/vim-unimpaired'        " shortcuts for q[ q] for quicklist
+Plug 'majutsushi/tagbar'                " Great tagbar - mapped to <F8>
+Plug 'ncm2/ncm2'                        " Autocomplete
+Plug 'tpope/vim-surround'               " Fantastic surround replacer that accessed by cs
+Plug 'tpope/vim-unimpaired'             " shortcuts for q[ q] for quicklist
 Plug 'preservim/nerdtree' |
             \ Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'mhinz/vim-startify'            " Start screen
 
 call plug#end()
-
         colorscheme gruvbox
-        set foldcolumn=1        "fold column displays 
-        set noerrorbells
-        syntax on           " enable syntax processing
-        set backspace=indent,eol,start " make backspaces more powerfull
+        set foldcolumn=1        " fold column displays 
+        set noerrorbells        " bell of death
+        syntax on               " enable syntax processing
+                                " make backspaces more powerfull
+        set backspace=indent,eol,start 
 
         set tabstop=3           " number of visual spaces per TAB
         set softtabstop=4       " number of spaces in tab when editing
@@ -116,7 +119,8 @@ nnoremap <LEADER>u :UndotreeShow <CR>
 nnoremap <LEADER>q :wincmd q <CR>
 
 "NERDTree
-nnoremap <LEADER>e :NERDTree <CR>
+nnoremap <LEADER>e :NERDTreeFind <CR>
+nnoremap <LEADER>E :NERDTree <CR>
 
 " Toggle Tabgbar On
 nmap <F8> :TagbarToggle<CR>
