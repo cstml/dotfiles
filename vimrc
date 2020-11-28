@@ -37,6 +37,8 @@ Plug 'nathanaelkane/vim-indent-guides'
 Plug 'Chiel92/vim-autoformat'
 Plug 'ycm-core/YouCompleteMe'
 
+Plug 'airblade/vim-gitgutter'
+
 Plug 'davidhalter/jedi-vim'             " Python Autocomplete
 "Plug 'xolox/vim-easytags'
 Plug 'xolox/vim-misc'
@@ -127,12 +129,9 @@ nnoremap <LEADER>E :NERDTree <CR>
 nmap <F8> :TagbarToggle<CR>
 
 " Coloured column 80
-set colorcolumn=80
+set colorcolumn=80,120
 
-"autocmd vimenter * PluginUpdate 
 let g:ycm_global_ycm_extra_conf="~/.vim/.ycm_extra_conf.py"
-
-"autocmd vimenter * NERDTree
 
 " jump to next indent with [l and ]l
 nnoremap <M-,> :call search('^'. matchstr(getline('.'), '\(^\s*\)') .'\%<' . line('.') . 'l\S', 'be')<CR>
@@ -143,6 +142,10 @@ nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
+nmap <leader>ca :CocAction<CR>
+nmap <leader>cf :CocFix<CR>
+
+
 """""""""""""""""""""""""""""""""""""""""
 " FZF REMAPS
 set rtp+=/home/linuxbrew/.linuxbrew/opt/fzf
@@ -170,12 +173,15 @@ nnoremap <leader>l :Tags<CR>
 " use S and U to stage unstage 
 nnoremap <leader>gs :G<CR>
 " to enter the diff mode press dv
-nnoremap <leader>gd :diffget //3<CR>
+nnoremap <leader>g3 :diffget<space>3<CR>
 " gets git diff from left 
-nnoremap <leader>gj :diffget //2<CR>
+nnoremap <leader>g2 :diffget<space>2<CR>
+" gets git diff from right 
+nnoremap <leader>g1 :diffget<space>1<CR>
 " gets git diff from right 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "Things I always forget:
 "ctrl + window + o closes all the other tabs 
-
+"
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
