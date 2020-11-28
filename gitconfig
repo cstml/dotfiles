@@ -9,3 +9,5 @@
 	editor = vim
 [cola]
 	spellcheck = false
+[credential]
+	helper = cache --timeout=3600

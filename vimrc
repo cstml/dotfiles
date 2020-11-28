@@ -49,6 +49,7 @@ Plug 'preservim/nerdtree' |
 Plug 'mhinz/vim-startify'            " Start screen
 
 call plug#end()
+        colorscheme blue        " weird bug with gbox [need to load this first]
         colorscheme gruvbox
         set foldcolumn=1        " fold column displays 
         set noerrorbells        " bell of death
