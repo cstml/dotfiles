@@ -84,7 +84,7 @@ source $ZSH/oh-my-zsh.sh
  if [[ -n $SSH_CONNECTION ]]; then
    export EDITOR='vim'
  else
-   export EDITOR='mvim'
+   export EDITOR='vim'
  fi
 
 # Compilation flags
@@ -100,12 +100,14 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
 
+# Aliases
 alias Obsidian="~/bin/Obsidian-0.9.4.AppImage --no-sandbox &"
-
 alias Tmux-Katis-Compete="~/cdng/templates/tmux/tmux-kattis-session.sh"
+alias vim-lisp="sbcl --load ~/.vim/plugged/vlime/lisp/start-vlime.lisp"
+
 
 if command -v tmux &> /dev/null && [ -z "$TMUX" ]; then
-    tmux attach -t default || tmux new -s default
+    tmux new 
 fi
 
 export TERM=screen-256color
