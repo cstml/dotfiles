@@ -2,7 +2,7 @@
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/home/cstml/.oh-my-zsh"
+export ZSH="/Users/cstml/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -98,22 +98,27 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+<<<<<<< HEAD:zshrc
 eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
 
 # Aliases
 alias Obsidian="~/bin/Obsidian-0.9.4.AppImage --no-sandbox &"
+=======
+
+>>>>>>> 3a92af31a6ad4a6825f3de760c2a3248d9cebe97:zshrc-mac
 alias Tmux-Katis-Compete="~/cdng/templates/tmux/tmux-kattis-session.sh"
 alias vim-lisp="sbcl --load ~/.vim/plugged/vlime/lisp/start-vlime.lisp"
 
 
+<<<<<<< HEAD:zshrc
 if command -v tmux &> /dev/null && [ -z "$TMUX" ]; then
     tmux new 
 fi
 
+=======
+>>>>>>> 3a92af31a6ad4a6825f3de760c2a3248d9cebe97:zshrc-mac
 export TERM=screen-256color
        
-
-
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 export PATH="$HOME/.helmenv/bin:$PATH"
 
