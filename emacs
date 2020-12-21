@@ -44,3 +44,5 @@
   ;; Replace "sbcl" with the path to your implementation
   (setq inferior-lisp-program "sbcl")
 
+;; mac specific for alt key
+(setq mac-right-option-modifier nil)
