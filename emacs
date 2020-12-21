@@ -9,6 +9,9 @@
 (setq gnutls-algorithm-priority "NORMAL:-VERS-TLS1.3")   ;some problem idk what - but it fixed it
 (package-initialize)
 
+;; cider for Clojure
+(add-to-list 'package-pinned-packages '(cider . "melpa-stable") t)
+
  ;; rainbow delimeters mode 
 (add-hook 'foo-mode-hook #'rainbow-delimiters-mode)
 (custom-set-variables
@@ -18,7 +21,13 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (alect-themes paredit slime slime-volleyball rainbow-delimiters))))
+    (evil 
+     cider 
+     alect-themes 
+     paredit 
+     slime 
+     slime-volleyball 
+     rainbow-delimiters))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -34,6 +43,7 @@
 (add-hook 'lisp-mode-hook             #'enable-paredit-mode)
 (add-hook 'lisp-interaction-mode-hook #'enable-paredit-mode)
 (add-hook 'scheme-mode-hook           #'enable-paredit-mode)
+(add-hook 'clojure-mode-hook          #'enable-paredit-mode)
 (add-hook 'slime-repl-mode-hook (lambda () (paredit-mode +1)))
 
 ;; dark theme
@@ -44,3 +54,5 @@
   ;; Replace "sbcl" with the path to your implementation
   (setq inferior-lisp-program "sbcl")
 
+;; line wrap at 80
+(setq-default fill-column 80)
