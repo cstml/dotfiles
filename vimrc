@@ -49,6 +49,8 @@ Plug 'tpope/vim-unimpaired'             " shortcuts for q[ q] for quicklist
 Plug 'preservim/nerdtree' |
             \ Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'mhinz/vim-startify'            " Start screen
+Plug 'vlime/vlime', {'rtp': 'vim/'}
+
 
 call plug#end()
         colorscheme blue        " weird bug with gbox [need to load this first]
