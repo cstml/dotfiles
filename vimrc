@@ -19,11 +19,8 @@ Plug 'vim-airline/vim-airline'          " airline taskbar
 
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } } 
 Plug 'junegunn/fzf.vim'                 " awesome fuzzy finder
-
 Plug 'tpope/vim-fugitive'               " great stuff for GIt
-
 "Plug 'szw/vim-tags'                     " tag managerworks with :TagsGenerate
-
 Plug 'mbbill/undotree'                  " Undotree is fantastic really
 
 "Plug 'leafgarland/typescript-vim'      " typescript
@@ -36,8 +33,9 @@ Plug 'xuhdev/vim-latex-live-preview'    " latex live preview
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'Chiel92/vim-autoformat'
 Plug 'ycm-core/YouCompleteMe'
-
 Plug 'airblade/vim-gitgutter'
+
+Plug 'vim-scripts/paredit.vim'          " paredit
 
 Plug 'davidhalter/jedi-vim'             " Python Autocomplete
 "Plug 'xolox/vim-easytags'
@@ -48,7 +46,8 @@ Plug 'tpope/vim-surround'               " Fantastic surround replacer that acces
 Plug 'tpope/vim-unimpaired'             " shortcuts for q[ q] for quicklist
 Plug 'preservim/nerdtree' |
             \ Plug 'Xuyuanp/nerdtree-git-plugin'
-Plug 'mhinz/vim-startify'            " Start screen
+
+Plug 'mhinz/vim-startify'               " Start screen
 Plug 'vlime/vlime', {'rtp': 'vim/'}
 
 

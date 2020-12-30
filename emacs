@@ -59,3 +59,7 @@
 
 ;; line wrap at 80
 (setq-default fill-column 80)
+
+;; turn evil mode on by default
+(require 'evil)
+(evil-mode 1)
