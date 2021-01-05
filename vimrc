@@ -11,7 +11,7 @@ Plug 'VundleVim/Vundle.vim'             " Plugin Manager
 "
                                         " the best autocomplete
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'puremourning/vimspector'          " VIMspector dbg
+"Plug 'puremourning/vimspector'          " VIMspector dbg
                                 
 Plug 'morhetz/gruvbox'                  " colorscheme
 Plug 'OmniSharp/omnisharp-vim'          " Omnicompletion for C#
@@ -47,8 +47,9 @@ Plug 'tpope/vim-unimpaired'             " shortcuts for q[ q] for quicklist
 Plug 'preservim/nerdtree' |
             \ Plug 'Xuyuanp/nerdtree-git-plugin'
 
-Plug 'mhinz/vim-startify'               " Start screen
-Plug 'vlime/vlime', {'rtp': 'vim/'}
+"Plug 'mhinz/vim-startify'               " Start screen
+"Plug 'vlime/vlime', {'rtp': 'vim/'}    " V lime 
+Plug 'kovisoft/slimv'                   " slimv
 
 
 call plug#end()
