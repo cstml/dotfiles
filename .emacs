@@ -4,49 +4,30 @@
 ;; and `package-pinned-packages`. Most users will not need or want to do this.
 ;;(add-to-list 'package-archives '("melpa-stable" . "https://stable.melpa.org/packages/") t)
 
-(add-to-list 'package-archives
-             '("melpa-stable" . "https://stable.melpa.org/packages/") t)
-(setq gnutls-algorithm-priority "NORMAL:-VERS-TLS1.3")   ;some problem idk what - but it fixed it
-(package-initialize)
-
- ;; rainbow delimeters mode 
-(add-hook 'foo-mode-hook #'rainbow-delimiters-mode)
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(org-agenda-files (quote ("~/cdng/Obsidian/org-mode/")))
- '(package-selected-packages
-   (quote
-    (helm-ls-git helm use-package ## web-mode tide docker-compose-mode dockerfile-mode neotree latex-preview-pane sly typescript-mode magit evil cider alect-themes paredit slime slime-volleyball rainbow-delimiters))))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
-
- ;;paredit for nice paranthesis
-(autoload 'enable-paredit-mode "paredit" "Turn on pseudo-structural editing of Lisp code." t)
-(add-hook 'emacs-lisp-mode-hook                  #'enable-paredit-mode)
-(add-hook 'eval-expression-minibuffer-setup-hook #'enable-paredit-mode)
-(add-hook 'ielm-mode-hook                        #'enable-paredit-mode)
-(add-hook 'lisp-mode-hook                        #'enable-paredit-mode)
-(add-hook 'lisp-interaction-mode-hook            #'enable-paredit-mode)
-(add-hook 'scheme-mode-hook                      #'enable-paredit-mode)
-(add-hook 'clojure-mode-hook                     #'enable-paredit-mode)
-(add-hook 'slime-repl-mode-hook (lambda () (paredit-mode +1)))
-
 ;; dark theme
 (load-theme 'alect-black t)
 
 ;;slime
-  (load (expand-file-name "~/.quicklisp/slime-helper.el"))
-  ;; Replace "sbcl" with the path to your implementation
-  (setq inferior-lisp-program "sbcl")
+(load (expand-file-name "~/.quicklisp/slime-helper.el"))
+;; Replace "sbcl" with the path to your implementation
+(setq inferior-lisp-program "sbcl")
 
-;; mac specific for alt key
+;; check OS type
+;; because the Mac OS Keyboard - doesn't work well
+(cond
+ ((string-equal system-type "windows-nt") ; Microsoft Windows
+  (progn
+    (message "Microsoft Windows")))
+ ((string-equal system-type "darwin") ; Mac OS X
+  (progn
+    (setq mac-option-key-is-meta nil)
+    (setq mac-command-key-is-meta t)
+    (setq mac-command-modifier 'meta)
+    (setq mac-option-modifier nil)
+    (message "Mac OS X")))
+ ((string-equal system-type "gnu/linux") ; linux
+  (progn
+    (message "Linux"))))
 (setq mac-right-option-modifier nil)
 
 ;; line wrap at 80
@@ -56,13 +37,16 @@
 (add-to-list 'package-pinned-packages '(cider . "melpa-stable") t)
 
 ;; dockerfile-mode
+(use-package dockerfile-mode)
 (require 'dockerfile-mode)
 (add-to-list 'auto-mode-alist '("Dockerfile\\'" . dockerfile-mode))
 
 ;; docker-compose mode
+(use-package docker-compose-mode)
 (require 'docker-compose-mode)
 
 ;; TIDE Typescript
+  (use-package web-mode)
   (defun setup-tide-mode ()
     (interactive)
     (tide-setup)
@@ -94,6 +78,7 @@
   ;; (flycheck-add-mode 'typescript-tslint 'web-mode)
 
 ;; TIDE JSX
+  
   (require 'web-mode)
   (add-to-list 'auto-mode-alist '("\\.jsx\\'" . web-mode))
   (add-hook 'web-mode-hook
