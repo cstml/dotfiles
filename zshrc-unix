@@ -106,9 +106,9 @@ alias Tmux-Katis-Compete="~/cdng/templates/tmux/tmux-kattis-session.sh"
 alias vim-lisp="sbcl --load ~/.vim/plugged/vlime/lisp/start-vlime.lisp"
 
 
-if command -v tmux &> /dev/null && [ -z "$TMUX" ]; then
-    tmux new 
-fi
+#if command -v tmux &> /dev/null && [ -z "$TMUX" ]; then
+#    tmux new 
+#fi
 
 export TERM=screen-256color
        
@@ -117,3 +117,5 @@ export TERM=screen-256color
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 export PATH="$HOME/.helmenv/bin:$PATH"
 
+if [ -e /home/cstml/.nix-profile/etc/profile.d/nix.sh ]; then . /home/cstml/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
+[ -f "${GHCUP_INSTALL_BASE_PREFIX:=$HOME}/.ghcup/env" ] && source "${GHCUP_INSTALL_BASE_PREFIX:=$HOME}/.ghcup/env"
