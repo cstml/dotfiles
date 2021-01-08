@@ -78,7 +78,6 @@
   ;; (flycheck-add-mode 'typescript-tslint 'web-mode)
 
 ;; TIDE JSX
-  
   (require 'web-mode)
   (add-to-list 'auto-mode-alist '("\\.jsx\\'" . web-mode))
   (add-hook 'web-mode-hook
