@@ -1,5 +1,5 @@
 # If you come from bash you might have to change your $PATH.
-export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH=$HOME/bin:/usr/local/bin:$PATH:/usr/sbin
 
 # Path to your oh-my-zsh installation.
 export ZSH="/home/cstml/.oh-my-zsh"
@@ -72,7 +72,6 @@ plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
 
-
 # User configuration
 
 # export MANPATH="/usr/local/man:$MANPATH"
@@ -100,22 +99,30 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
 
+# -------------------------------------------------------
 # Aliases
 alias Obsidian="~/bin/Obsidian-0.9.4.AppImage --no-sandbox &"
+
 alias Tmux-Katis-Compete="~/cdng/templates/tmux/tmux-kattis-session.sh"
+
 alias vim-lisp="sbcl --load ~/.vim/plugged/vlime/lisp/start-vlime.lisp"
 
-
+alias ec='emacsclient'
+#---------------------------------------------------------
 #if command -v tmux &> /dev/null && [ -z "$TMUX" ]; then
 #    tmux new 
 #fi
 
 export TERM=screen-256color
-       
-
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 export PATH="$HOME/.helmenv/bin:$PATH"
 
-if [ -e /home/cstml/.nix-profile/etc/profile.d/nix.sh ]; then . /home/cstml/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
-[ -f "${GHCUP_INSTALL_BASE_PREFIX:=$HOME}/.ghcup/env" ] && source "${GHCUP_INSTALL_BASE_PREFIX:=$HOME}/.ghcup/env"
+if [ -e /home/cstml/.nix-profile/etc/profile.d/nix.sh ];then
+    . /home/cstml/.nix-profile/etc/profile.d/nix.sh;
+fi # added by Nix installer
+
+[ -f "${GHCUP_INSTALL_BASE_PREFIX:=$HOME}/.ghcup/env" ] &&
+    source "${GHCUP_INSTALL_BASE_PREFIX:=$HOME}/.ghcup/env"
+
+[[ /home/linuxbrew/.linuxbrew/bin/kubectl ]] && source <(kubectl completion zsh)
