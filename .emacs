@@ -9,7 +9,10 @@
 (setq gnutls-algorithm-priority "NORMAL:-VERS-TLS1.3")   ;some problem idk what - but it fixed it
 (package-initialize)
 
- ;; rainbow delimeters mode 
+;; spaces not tabs
+(setq-default indent-tabs-mode nil)
+
+;; rainbow delimeters mode 
 (add-hook 'foo-mode-hook #'rainbow-delimiters-mode)
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -20,7 +23,7 @@
  '(org-agenda-files (quote ("~/cdng/Obsidian/org-mode/")))
  '(package-selected-packages
    (quote
-    (projectile fzf gradle-mode eclim helm-ls-git helm use-package ## web-mode tide docker-compose-mode dockerfile-mode neotree latex-preview-pane sly typescript-mode magit evil cider alect-themes paredit slime slime-volleyball rainbow-delimiters))))
+    (flycheck-haskell haskell-mode auctex projectile fzf gradle-mode eclim helm-ls-git helm use-package ## web-mode tide docker-compose-mode dockerfile-mode neotree latex-preview-pane sly typescript-mode magit evil cider alect-themes paredit slime slime-volleyball rainbow-delimiters))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -159,5 +162,8 @@
 ;; ---------------------------------------------------------
 ;; good ol' fzf
 (use-package fzf)
-(global-set-key (kbd "C-x M-f") 'fzf-git)        ;; fzf-find-git
-(global-set-key (kbd "C-x M-f M-f") 'fzf-git-grep) ;; fzf
+(global-set-key (kbd "C-x M-f") 'fzf-git)    ;; fzf-find-git
+
+;; ---------------------------------------------------------
+;; (global-set-key (kbd "C-x M-f M-f") 'fzf-git-grep)
+;; fzf
