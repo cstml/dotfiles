@@ -5,6 +5,7 @@
 { config, pkgs, ... }:
 
 {
+
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
@@ -33,7 +34,7 @@
 
   # Select internationalisation properties.
   i18n = { 
-	consoleFont = "Lat2-Terminus16"; 
+	consoleFont   = "Lat2-Terminus16"; 
 	consoleKeyMap = "uk"; 
 	defaultLocale = "en_GB.UTF-8";
   }; 
@@ -43,6 +44,7 @@
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.desktopManager.gnome3.enable = true;
   
+
   # zsh
   programs.zsh = {
 	enable = true;
@@ -56,7 +58,11 @@
 		source $ZSH/oh-my-zsh.sh '';
 	promptInit = "";
   };
-  
+   
+  #Allow Unfree Softwtware
+  nixpkgs.config.allowUnfree = true; 
+
+
   # Enable Oh-my-zsh
   programs.zsh.ohMyZsh = {
   	enable = true;
@@ -103,6 +109,7 @@
     docker
     fzf
     emacs
+    entr
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
