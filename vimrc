@@ -54,7 +54,8 @@ Plug 'kovisoft/slimv'                   " slimv
 
 call plug#end()
         colorscheme blue        " weird bug with gbox [need to load this first]
-        colorscheme gruvbox
+        "colorscheme gruvbox
+        colorscheme industry
         set foldcolumn=1        " fold column displays 
         set noerrorbells        " bell of death
         syntax on               " enable syntax processing

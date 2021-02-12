@@ -5,6 +5,7 @@
 { config, pkgs, ... }:
 
 {
+
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
@@ -13,14 +14,9 @@
   # Use the GRUB 2 boot loader.
   boot.loader.grub.enable = true;
   boot.loader.grub.version = 2;
-  # boot.loader.grub.efiSupport = true;
-  # boot.loader.grub.efiInstallAsRemovable = true;
-  # boot.loader.efi.efiSysMountPoint = "/boot/efi";
-  # Define on which hard drive you want to install Grub.
   boot.loader.grub.device = "/dev/sda"; # or "nodev" for efi only
 
   networking.hostName = "nixos"; # Define your hostname.
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Set your time zone.
   time.timeZone = "Europe/London";
@@ -38,7 +34,7 @@
 
   # Select internationalisation properties.
   i18n = { 
-	consoleFont = "Lat2-Terminus16"; 
+	consoleFont   = "Lat2-Terminus16"; 
 	consoleKeyMap = "uk"; 
 	defaultLocale = "en_GB.UTF-8";
   }; 
@@ -48,6 +44,7 @@
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.desktopManager.gnome3.enable = true;
   
+
   # zsh
   programs.zsh = {
 	enable = true;
@@ -61,20 +58,19 @@
 		source $ZSH/oh-my-zsh.sh '';
 	promptInit = "";
   };
+   
+  #Allow Unfree Softwtware
+  nixpkgs.config.allowUnfree = true; 
 
-  # Git
-  programs.git = {
-	enabled = true;
-	userName = "cstml";
-	useremail = "cstmlcodes@gmail.com";
-  };
 
-  
   # Enable Oh-my-zsh
   programs.zsh.ohMyZsh = {
   	enable = true;
      	plugins = [ "git" "sudo" "docker" "kubectl" ];
        	};
+
+  # Enable Docker
+  virtualisation.docker.enable = true;
 
   # Configure keymap in X11
   # services.xserver.layout = "us";
@@ -97,7 +93,7 @@
  		isNormalUser = true;
 		description = "cstml";
 		home = "/home/cstml";
-    		extraGroups = [ "wheel" "networkmanager" ]; # Enable ‘sudo’ for the user.
+    		extraGroups = [ "wheel" "networkmanager" "docker"]; # Enable ‘sudo’ for the user.
     		shell=pkgs.zsh; # Enable zsh as default shell
   	}; 
   };
@@ -106,10 +102,14 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     wget 
-    vim
+    vim_configurable
     firefox
     git
     tmux
+    docker
+    fzf
+    emacs
+    entr
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
