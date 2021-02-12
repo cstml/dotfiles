@@ -19,11 +19,15 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(helm-completion-style (quote emacs))
- '(org-agenda-files (quote ("~/cdng/Obsidian/org-mode/")))
+ '(haskell-process-auto-import-loaded-modules t)
+ '(haskell-process-log t)
+ '(haskell-process-suggest-remove-import-lines t)
+ '(helm-completion-style 'emacs)
+ '(org-agenda-files
+   '("~/cdng/Obsidian/org-mode/" "~/cdng/Obsidian/org-mode/university-orgs/" "~/cdng/Obsidian/org-mode/work/"))
+ '(org-mobile-directory "~/Dropbox/Apps/MobileOrg/")
  '(package-selected-packages
-   (quote
-    (flycheck-haskell haskell-mode auctex projectile fzf gradle-mode eclim helm-ls-git helm use-package ## web-mode tide docker-compose-mode dockerfile-mode neotree latex-preview-pane sly typescript-mode magit evil cider alect-themes paredit slime slime-volleyball rainbow-delimiters))))
+   '(ein ac-ispell flycheck-haskell haskell-mode auctex projectile fzf gradle-mode eclim helm-ls-git helm use-package ## web-mode tide docker-compose-mode dockerfile-mode neotree latex-preview-pane sly typescript-mode magit evil cider alect-themes paredit slime slime-volleyball rainbow-delimiters)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -167,3 +171,17 @@
 ;; ---------------------------------------------------------
 ;; (global-set-key (kbd "C-x M-f M-f") 'fzf-git-grep)
 ;; fzf
+
+;; ---------------------------------------------------------
+;; tab widht to 2 spaces
+(setq-default indent-tabs-mode nil)
+(setq-default tab-width 2)
+(setq indent-line-function 'insert-tab)
+
+;; ---------------------------------------------------------
+;; Haskell mode
+
+(require 'haskell-interactive-mode)
+(require 'haskell-process)
+(add-hook 'haskell-mode-hook 'interactive-haskell-mode)
+
