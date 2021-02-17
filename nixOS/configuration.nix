@@ -44,6 +44,8 @@
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.desktopManager.gnome3.enable = true;
   
+  # Enable flatpack
+  services.flatpak.enable = true;
 
   # zsh
   programs.zsh = {
@@ -102,14 +104,32 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     wget 
-    vim_configurable
     firefox
     git
     tmux
     docker
     fzf
-    emacs
+
+    emacs26
+    emacs26Packages.helm
+    emacs26Packages.paredit
+
+    ghc
+    emacs26Packages.haskell-mode
+
     entr
+    erlang
+    rebar3
+
+    python3
+    jupyter
+    emacs26Packages.python-mode
+
+    discord
+    vim_configurable
+    vifm
+    zotero
+    gnupg
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
